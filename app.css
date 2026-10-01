@@ -52,7 +52,7 @@ h2#clave {
 }
 
 /* Message d'avertissement (Warning) */
-#clave.error {
+#warning.error {
   color: #dc2626;
 }
 
