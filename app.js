@@ -1,5 +1,5 @@
 const generateBtn = document.getElementById("generateBtn");
-let passwordGenerate = document.getElementById("passwordGenerate");
+let passwordGenerate = document.getElementById("clave");
 let lengthInput = document.getElementById("lengthInput");
 let digitInput = document.getElementById("digitInput");
 let symbolInput = document.getElementById("symbolInput");
