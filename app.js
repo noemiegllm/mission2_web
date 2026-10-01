@@ -1,20 +1,30 @@
 const generateBtn = document.getElementById("generateBtn");
 let passwordGenerate = document.getElementById("passwordGenerate");
 let lengthInput = document.getElementById("lengthInput");
+let digitInput = document.getElementById("digitInput");
+let symbolInput = document.getElementById("symbolInput");
 
-const alfabeto = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-function forjarClave(lengthPassword = 5){
+function forjarClave(lengthPassword, digitBoolean, symbolBoolean){
+    let alfabeto = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let newpassword = "";
+    if(digitBoolean){
+        alfabeto += "0123456789";
+    }
+    if(symbolBoolean){
+        alfabeto += "!@#$%&*?";
+    }
+
     for (let i = 0; i < lengthPassword; i++){
         let oneCharacter = alfabeto.charAt(Math.floor(Math.random() * alfabeto.length));
         newpassword += oneCharacter;
     }
-    passwordGenerate.textContent = newpassword;
+    return newpassword;
 }
 
 
 
-generateBtn.addEventListener("click", () =>{
-    forjarClave(lengthInput.value);
+generateBtn.addEventListener("click", () => {
+    console.log(digitInput.value);
+    passwordGenerate.textContent = forjarClave(lengthInput.value, digitInput.checked, symbolInput.checked);
+
 })
