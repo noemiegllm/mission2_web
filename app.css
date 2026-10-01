@@ -1,0 +1,102 @@
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #f8f9fa;
+  color: #212529;
+  min-height: 100vh;
+  margin: 0;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Style commun pour la structure */
+article, aside {
+  background: #ffffff;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 550px;
+  box-sizing: border-box;
+}
+
+article:first-of-type {
+  text-align: center;
+  border-bottom: 3px solid #4f46e5;
+}
+
+h1 {
+  font-size: 1.5rem;
+  color: #111827;
+}
+
+p {
+  color: #6c757d;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Affichage de la clé générée (#clave) */
+h2#clave {
+  font-size: 1.25rem;
+  color: #4f46e5;
+  background-color: #f3f4f6;
+  padding: 12px;
+  border-radius: 6px;
+  letter-spacing: 1px;
+  min-height: 24px;
+  margin: 0 0 16px 0;
+  text-align: center;
+}
+
+/* Message d'avertissement (Warning) */
+#clave.error {
+  color: #dc2626;
+}
+
+/* Alignement des contrôles et formulaires */
+label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  margin-top: 7px;
+  color: #374151;
+}
+
+/* Input numérique pour la longueur */
+#lengthInput {
+  padding: 5px;
+  font-size: 1rem;
+  text-align: center;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+/* Checkboxes */
+input[type="checkbox"] {
+  accent-color: #4f46e5;
+}
+
+/* Bouton principal */
+button#generateBtn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+
+button#generateBtn:hover {
+  background-color: #4338ca;
+}
+
+button#generateBtn:active {
+  background-color: #3730a3;
+}

@@ -22,9 +22,13 @@ function forjarClave(lengthPassword, digitBoolean, symbolBoolean){
 }
 
 
-
 generateBtn.addEventListener("click", () => {
-    console.log(digitInput.value);
-    passwordGenerate.textContent = forjarClave(lengthInput.value, digitInput.checked, symbolInput.checked);
-
+    passwordGenerate.classList.remove("error");
+    let length = Number(lengthInput.value);
+    if(length < 4 || length > 32){
+        passwordGenerate.textContent = "Choose a valid length (4-32) !"
+        passwordGenerate.classList.add("error");
+    }else{
+        passwordGenerate.textContent = forjarClave(length, digitInput.checked, symbolInput.checked);
+    }
 })
