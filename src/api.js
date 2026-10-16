@@ -1,5 +1,5 @@
 //API module
-async function getReceipeByName(name) {
+export async function getRecipeByName(name) {
   try{
     const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`);
 
@@ -23,5 +23,6 @@ async function getReceipeByName(name) {
     }));
   }catch(error){
     console.error("Error catched : ", error.message);
+    throw error;
   }
 }

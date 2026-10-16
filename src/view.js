@@ -8,7 +8,7 @@ let articleResult = document.getElementById("articleResult");
 /**
  * Show the loading GIF
  */
-function showLoading() {
+export function showLoading() {
     noResultMessage.style.display = 'none';
     articleResult.style.display = 'none';
     loadingGIF.style.display = 'block';
@@ -17,7 +17,7 @@ function showLoading() {
 /**
  * Show that the request found no result
  */
-function showNoResult(){
+export function showNoResult(){
     noResultMessage.style.display = 'block';
     articleResult.style.display = 'none';
     loadingGIF.style.display = 'none'; 
@@ -26,7 +26,7 @@ function showNoResult(){
 /**
  * Show the request's result
  */
-function showResult(){
+export function showResult(){
     articleResult.style.display = 'block';
     noResultMessage.style.display = 'none';
     loadingGIF.style.display = 'none';
