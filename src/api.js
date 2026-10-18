@@ -18,7 +18,7 @@ export async function getRecipeByName(name) {
     return mealsResult.meals.map(oneMeal => ({
       id: oneMeal.idMeal,
       name: oneMeal.strMeal,
-      instruction: oneMeal.strInstructions,
+      instructions: oneMeal.strInstructions,
       image: oneMeal.strMealThumb
     }));
   }catch(error){

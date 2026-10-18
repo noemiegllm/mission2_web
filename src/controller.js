@@ -1,6 +1,6 @@
 //Logic
 import { getRecipeByName } from './api.js';
-import { showLoading, showNoResult, showResult } from './view.js';
+import { showLoading, showNoResult, showResult, createCard } from './view.js';
 
 const searchBtn = document.getElementById("searchBtn");
 const searchInput = document.getElementById("searchInput");
@@ -15,10 +15,13 @@ searchBtn.addEventListener("click", async () =>{
             showNoResult();
         } else {
             showResult();
-            // C'est ici que vous afficherez vos recettes dans articleResult par la suite !
+            console.log(recipes);
+            recipes.forEach(recipe => { 
+                createCard(recipe);
+            }); 
         }
     } catch (error) {
         console.error("Erreur :", error);
-        showNoResult(); // Par sécurité en cas d'erreur réseau
+        showNoResult();
     }
 });

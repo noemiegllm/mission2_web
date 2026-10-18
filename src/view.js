@@ -12,6 +12,7 @@ export function showLoading() {
     noResultMessage.style.display = 'none';
     articleResult.style.display = 'none';
     loadingGIF.style.display = 'block';
+    articleResult.innerHTML = '';
 };
 
 /**
@@ -30,4 +31,18 @@ export function showResult(){
     articleResult.style.display = 'block';
     noResultMessage.style.display = 'none';
     loadingGIF.style.display = 'none';
+}
+
+
+export function createCard(recipe){
+    
+    const card = document.createElement('article');
+
+    card.innerHTML = `
+        <h2>${recipe.name}</h2>
+        <img src="${recipe.image}" alt="${recipe.name}"/>
+        <p>${recipe.instructions}</p>      
+    `;
+
+    articleResult.appendChild(card);
 }
