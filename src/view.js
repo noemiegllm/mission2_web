@@ -37,6 +37,7 @@ export function showResult(){
 export function createCard(recipe){
     
     const card = document.createElement('article');
+    card.classList.add('recipe-card-item');
 
     card.innerHTML = `
         <h2>${recipe.name}</h2>

@@ -14,12 +14,13 @@ export async function getRecipeByName(name) {
       return [];
     }
 
-    //transform all the meals from json to object vi map()
+    //transform all the meals from json to object via a map()
     return mealsResult.meals.map(oneMeal => ({
       id: oneMeal.idMeal,
       name: oneMeal.strMeal,
       instructions: oneMeal.strInstructions,
-      image: oneMeal.strMealThumb
+      image: oneMeal.strMealThumb,
+      
     }));
   }catch(error){
     console.error("Error catched : ", error.message);

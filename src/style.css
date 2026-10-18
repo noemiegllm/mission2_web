@@ -1,95 +1,99 @@
-body {
-  font-family: system-ui, -apple-system, sans-serif;
-  background-color: #f8f9fa;
+* {
+  font-family: Inter, system-ui, sans-serif;
   color: #212529;
-  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 16px;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-/* Style commun pour les blocs (articles) */
-article {
-  background: #ffffff;
-  padding: 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  width: 100%;
-  max-width: 550px;
-  border-radius: 8px;
-  box-sizing: border-box;
-}
-
-article:first-of-type {
-  text-align: center;
-  border-bottom: 3px solid #4f46e5;
+  min-height: 100vh;
+  padding: 40px 20px;
 }
 
 h1 {
-  font-size: 1.5rem;
-  color: #111827;
-  margin: 0 0 16px 0;
+  font-size: 2.2rem;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
 }
 
-p {
-  color: #6c757d;
-  margin: 0;
-  font-size: 0.9rem;
-}
-
-/* Conteneur de recherche (input + bouton) */
 .search-box {
   display: flex;
-  gap: 10px;
   justify-content: center;
+  gap: 10px;
+  margin-bottom: 2rem;
 }
 
-/* Champ de texte */
 #searchInput {
   flex: 1;
-  padding: 10px 14px;
+  max-width: 450px;
+  padding: 0.75em 1.2em;
   font-size: 1rem;
+  border-radius: 8px;
   border: 1px solid #d1d5db;
-  border-radius: 6px;
+  background: #fff;
   outline: none;
-  transition: border-color 0.2s;
 }
 
 #searchInput:focus {
   border-color: #4f46e5;
 }
 
-/* Bouton de recherche */
-button#searchBtn {
-  padding: 10px 20px;
+button {
+  border-radius: 8px;
+  border: none;
+  padding: 0.75em 1.5em;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   background-color: #4f46e5;
   color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.2s;
 }
 
-button#searchBtn:hover {
+button:hover {
   background-color: #4338ca;
 }
 
-button#searchBtn:active {
-  background-color: #3730a3;
-}
-
-/* Zone d'affichage des résultats (#app) */
-#app {
-  min-height: 100px;
+#articleResult {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 750px;
+  margin-top: 10px;
+}
+
+.recipe-card-item {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.recipe-card-item h2 {
+  font-size: 1.3rem;
+  color: #111827;
+  margin: 0;
+}
+
+.recipe-card-item img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover; /*To keep picture's form */
+  border-radius: 6px;
+}
+
+.recipe-card-item p {
+  color: #4b5563;
+  margin: 0;
+}
+
+#noResultMessage {
   text-align: center;
+  color: #6b7280;
 }
