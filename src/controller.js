@@ -6,22 +6,25 @@ const searchBtn = document.getElementById("searchBtn");
 const searchInput = document.getElementById("searchInput");
 
 searchBtn.addEventListener("click", async () =>{
+    
     showLoading();
     try {
-        const dataInput = searchInput.value;
-        const recipes = await getRecipeByName(dataInput);
-        
-        if (recipes.length === 0) {
-            showNoResult();
-        } else {
-            showResult();
-            console.log(recipes);
-            recipes.forEach(recipe => { 
-                createCard(recipe);
-            }); 
+        const dataInput = searchInput.value.trim();
+        if(!dataInput){
+            showNoResult("Please, enter a term in the search bar");
+        }else{
+            const recipes = await getRecipeByName(dataInput);
+            
+            if (recipes.length === 0) {
+                showNoResult("No result found");
+            } else {
+                showResult();
+                recipes.forEach(recipe => { 
+                    createCard(recipe);
+                }); 
+            }
         }
     } catch (error) {
-        console.error("Erreur :", error);
-        showNoResult();
+        showNoResult("Error :" + error);
     }
 });

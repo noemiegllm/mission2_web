@@ -1,8 +1,6 @@
 //UI Front
-const searchBtn = document.getElementById("searchBtn");
 const noResultMessage = document.getElementById("noResultMessage");
 const loadingGIF = document.getElementById("loadingGIF");
-let searchInput = document.getElementById("searchInput");
 let articleResult = document.getElementById("articleResult");
 
 /**
@@ -18,10 +16,11 @@ export function showLoading() {
 /**
  * Show that the request found no result
  */
-export function showNoResult(){
-    noResultMessage.style.display = 'block';
+export function showNoResult(message){
     articleResult.style.display = 'none';
-    loadingGIF.style.display = 'none'; 
+    noResultMessage.textContent = message;
+    noResultMessage.style.display = 'block';
+    loadingGIF.style.display = 'none';
 }
 
 /**
@@ -32,7 +31,6 @@ export function showResult(){
     noResultMessage.style.display = 'none';
     loadingGIF.style.display = 'none';
 }
-
 
 export function createCard(recipe){
     

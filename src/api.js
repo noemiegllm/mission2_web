@@ -1,7 +1,8 @@
 //API module
 export async function getRecipeByName(name) {
   try{
-    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`);
+    const encodeName = encodeURIComponent(name);
+    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeName}`);
 
     //catch error 404/500
     if (!response.ok){
