@@ -19,8 +19,8 @@ searchBtn.addEventListener("click", async () =>{
                 showNoResult("No result found");
             } else {
                 showResult();
-                recipes.forEach(recipe => { 
-                    createCard(recipe);
+                recipes.map(oneRecipe => { 
+                    createCard(oneRecipe);
                 }); 
             }
         }

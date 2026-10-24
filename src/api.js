@@ -16,13 +16,24 @@ export async function getRecipeByName(name) {
     }
 
     //transform all the meals from json to object via a map()
-    return mealsResult.meals.map(oneMeal => ({
-      id: oneMeal.idMeal,
-      name: oneMeal.strMeal,
-      instructions: oneMeal.strInstructions,
-      image: oneMeal.strMealThumb,
-      
-    }));
+    return mealsResult.meals.map(oneMeal => {
+
+      let ingredients = [];
+      for (let i=1; i <=20; i++){
+        ingredients.push(oneMeal[`strIngredient${i}`]);
+      }
+      ingredients = ingredients
+        .filter(ingr => ingr && ingr.trim() !== "")
+        .map(ingr => ingr.trim());
+
+      return {
+        id: oneMeal.idMeal,
+        name: oneMeal.strMeal,
+        instructions: oneMeal.strInstructions,
+        image: oneMeal.strMealThumb,
+        ingredients : ingredients
+      };
+    });
   }catch(error){
     console.error("Error catched : ", error.message);
     throw error;
