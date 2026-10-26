@@ -37,7 +37,6 @@ export function showResult(){
 }
 
 export function createCard(recipe){
-    articleResult.innerHTML = '';
     const card = document.createElement('article');
     card.classList.add('recipe-card-item');
 
@@ -45,11 +44,14 @@ export function createCard(recipe){
         .map(ingr => `<li>${ingr}</li>`)
         .join('');
 
+    const recipeImage = recipe.image ? recipe.image : 'placeholder.jpg'; 
+    const recipeInstructions = recipe.instructions ? recipe.instructions : 'No instructions available.';
+
     card.innerHTML = `
         <h2>${recipe.name}</h2>
-        <img src="${recipe.image}" alt="${recipe.name}"/>
+        <img src="${recipeImage}" alt="${recipe.name}"/>
         <ul>${ingredientsList}</ul>
-        <p>${recipe.instructions}</p>      
+        <p>${recipeInstructions}</p>      
     `;
 
     articleResult.appendChild(card);

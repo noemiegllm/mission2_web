@@ -4,6 +4,7 @@ import { showLoading, showNoResult, showResult, createCard } from './view.js';
 
 const searchBtn = document.getElementById("searchBtn");
 const searchInput = document.getElementById("searchInput");
+let articleResult = document.getElementById("articleResult");
 
 async function handleSearch(){
     try {
@@ -19,7 +20,8 @@ async function handleSearch(){
                 showNoResult("No result found");
             } else {
                 showResult();
-                recipes.foreach(oneRecipe => { 
+                articleResult.innerHTML = "";
+                recipes.forEach(oneRecipe => { 
                     createCard(oneRecipe);
                 }); 
             }
