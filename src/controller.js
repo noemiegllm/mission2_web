@@ -5,26 +5,36 @@ import { showLoading, showNoResult, showResult, createCard } from './view.js';
 const searchBtn = document.getElementById("searchBtn");
 const searchInput = document.getElementById("searchInput");
 
-searchBtn.addEventListener("click", async () =>{
-    
-    showLoading();
+async function handleSearch(){
     try {
         const dataInput = searchInput.value.trim();
         if(!dataInput){
             showNoResult("Please, enter a term in the search bar");
+            return;
         }else{
+            showLoading();
             const recipes = await getRecipeByName(dataInput);
             
             if (recipes.length === 0) {
                 showNoResult("No result found");
             } else {
                 showResult();
-                recipes.map(oneRecipe => { 
+                recipes.foreach(oneRecipe => { 
                     createCard(oneRecipe);
                 }); 
             }
         }
     } catch (error) {
-        showNoResult("Error :" + error);
+        showNoResult("Something went wrong. Please try again.");
+    }finally{
+        searchBtn.disabled = false;
+    }
+}
+
+searchBtn.addEventListener("click",  handleSearch);
+
+searchInput.addEventListener("keydown", (event) => {
+    if(event.key === "Enter"){
+        handleSearch();
     }
 });

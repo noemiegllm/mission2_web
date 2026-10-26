@@ -18,13 +18,9 @@ export async function getRecipeByName(name) {
     //transform all the meals from json to object via a map()
     return mealsResult.meals.map(oneMeal => {
 
-      let ingredients = [];
-      for (let i=1; i <=20; i++){
-        ingredients.push(oneMeal[`strIngredient${i}`]);
-      }
-      ingredients = ingredients
-        .filter(ingr => ingr && ingr.trim() !== "")
-        .map(ingr => ingr.trim());
+    const ingredients = Array.from({ length: 20 }, (_, i) => oneMeal[`strIngredient${i + 1}`])
+      .filter(ingr => ingr && ingr.trim() !== "")
+      .map(ingr => ingr.trim());
 
       return {
         id: oneMeal.idMeal,

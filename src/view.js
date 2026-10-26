@@ -37,7 +37,7 @@ export function showResult(){
 }
 
 export function createCard(recipe){
-    
+    articleResult.innerHTML = '';
     const card = document.createElement('article');
     card.classList.add('recipe-card-item');
 
